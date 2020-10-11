@@ -1,5 +1,5 @@
 
-# Popular user data sync clients in containerss
+# Popular user data sync clients in containers
 
 ## How to run containers
 
@@ -14,6 +14,6 @@
 - [Yandex-Disk][link_yadisk_official]: [license][link_yadisk_license].
 
 ---
-[link_yadisk_readme]:./yandex-disk/README-yandex-disk.md
+[link_yadisk_readme]:./yandex-disk/README.md
 [link_yadisk_official]:https://yandex.ru/support/disk-desktop-linux/
 [link_yadisk_license]:https://yandex.ru/legal/desktop_software_agreement/
