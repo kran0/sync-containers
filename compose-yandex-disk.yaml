@@ -6,8 +6,7 @@
 version: '2'
 services:
   yandex-disk:
-#    image: docker.io/kran0/yandex-disk:latest
-    image: tt
+    image: docker.io/kran0/yandex-disk:latest
     restart: always
     volumes:
       - ./share:/opt/share
