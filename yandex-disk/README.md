@@ -7,15 +7,15 @@ The Licenses and legal notes in [parent README.md](../README.md).
 - Save locally the [compose.yaml](../compose-yandex-disk.yaml) service definition file;
 - Edit compose.yaml. Change at least env: ```PASSWORD``` and ```USERNAME```;
   - Defaults are:
-  ```bash
-    AUTH="/tmp/yandex-disk.passwd"
-    DIR="/opt/share"```
+    ```AUTH="/tmp/yandex-disk.passwd"```
+    ```DIR="/opt/share"```
   - Change ```DIR``` env variable and the ```volumes``` list to sync with other local location;
   - Change ```AUTH``` env variable and add entry to the ```volumes``` list to place auth encrypted file to certain local location;
 - Start/stop service:
   ```bash
     docker-compose -f compose-yandex-disk.yaml up -d
-    dockr-compose -f compose-yandex-disk.yaml down```
+    dockr-compose -f compose-yandex-disk.yaml down
+  ```
 
 # Docker tags
 
