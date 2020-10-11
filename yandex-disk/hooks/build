@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "------ HOOK START - BUILD -------"
+BA=
+
+echo "${DOCKER_TAG}" | grep '^latest$' && BA="${BA} --build-arg YANDEX_DISK=yandex-disk"
+
+docker build ${BA} -t ${IMAGE_NAME} .
+
+echo "------ HOOK END - BUILD -------"
