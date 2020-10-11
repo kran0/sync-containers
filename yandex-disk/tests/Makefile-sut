@@ -1,6 +1,6 @@
 .PHONY: tests prepare test1 test2
 
-tests: test1 test2 test3
+tests: test1 test2
 
 test1: prepare
 	ls -la $(SHARE)/.sync/
