@@ -1,0 +1,21 @@
+version: '2'
+services:
+  sut:
+    depends_on:
+      - yandex-disk
+    build:
+      context: ./tests
+      dockerfile: Dockerfile-sut
+    volumes:
+      - share:/opt/share
+    environment:
+      SHARE: /opt/share
+    command: tests
+
+  yandex-disk:
+    image: ${IMAGE_NAME}
+    volumes:
+      - share:/opt/share
+    environment:
+      PASSWORD: "secret"
+      USERNAME: "owner@yandex.ru"

@@ -1,0 +1,12 @@
+.PHONY: tests prepare test1 test2
+
+tests: test1 test2 test3
+
+test1: prepare
+	ls -la $(SHARE)/.sync/
+
+test2: prepare
+	cat $(SHARE)/.sync/*.log
+
+prepare:
+	sleep 30s
