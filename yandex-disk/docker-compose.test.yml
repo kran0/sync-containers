@@ -1,0 +1,10 @@
+#!/usr/bin/env -S podman-compose -f
+
+# ./compose.yaml up -d --force-recreate
+# ./compose.yaml build --no-cache
+
+version: '2'
+services:
+  sut:
+    image: ${IMAGE_NAME}
+    command: "--help"
