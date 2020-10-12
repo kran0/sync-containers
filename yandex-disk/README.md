@@ -1,10 +1,10 @@
 Container with Yandex-Disk.
 
-The Licenses and legal notes in [parent README.md](../README.md). 
+The Licenses and legal notes in [parent README.md](https://github.com/kran0/sync-containers/blob/main/README.md).
 
 # How to run?
 
-- Save locally the [compose.yaml](../compose-yandex-disk.yaml) service definition file;
+- Save locally the [compose.yaml](https://raw.githubusercontent.com/kran0/sync-containers/main/compose-yandex-disk.yaml) service definition file;
 - Edit compose.yaml. Change at least env: ```PASSWORD``` and ```USERNAME```;
   - Defaults are:
     ```AUTH="/tmp/yandex-disk.passwd"```
