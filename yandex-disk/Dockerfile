@@ -1,9 +1,9 @@
-ARG FEDORA_VERSION=34
+ARG FEDORA_VERSION=35
 FROM fedora:${FEDORA_VERSION} as prepare
 
 COPY rootfs /
 
-ARG FEDORA_VERSION=34
+ARG FEDORA_VERSION=35
 ARG YANDEX_DISK=yandex-disk-0.1.5.1039
 ENV DEPS='glibc-minimal-langpack bash'
 
