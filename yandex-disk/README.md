@@ -5,16 +5,15 @@ The Licenses and legal notes in [parent README.md](https://github.com/kran0/sync
 # How to run?
 
 - Save locally the [compose.yaml](https://raw.githubusercontent.com/kran0/sync-containers/main/compose-yandex-disk.yaml) service definition file;
-- Edit compose.yaml. Change at least env: ```PASSWORD``` and ```USERNAME```;
-  - Defaults are:
-    ```AUTH="/tmp/yandex-disk.passwd"```
-    ```DIR="/opt/share"```
-  - Change ```DIR``` env variable and the ```volumes``` list to sync with other local location;
-  - Change ```AUTH``` env variable and add entry to the ```volumes``` list to place auth encrypted file to certain local location;
+- Read run instructions in compose.yaml:
+  - Do the steps:
+    - Build the container (optional)
+    - Create auth info volume
+    - Edit .env and chill down SElinux
 - Start/stop service:
   ```bash
-    docker-compose -f compose-yandex-disk.yaml up -d
-    dockr-compose -f compose-yandex-disk.yaml down
+     ./compose-yandex-disk.yaml down
+     ./compose-yandex-disk.yaml up -d --force-recreate
   ```
 
 # Docker tags
