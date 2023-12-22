@@ -1,10 +1,10 @@
 ARG FEDORA_VERSION=39
 FROM fedora:${FEDORA_VERSION} as prepare
 
-COPY rootfs /
+COPY yandex.repo /etc/yum.repos.d
 
 ARG FEDORA_VERSION=39
-ARG YANDEX_DISK=yandex-disk #yandex-disk-0.1.6.1080
+ARG YANDEX_DISK=yandex-disk
 
 RUN dnf -y install --releasever ${FEDORA_VERSION}\
  --installroot /target\
