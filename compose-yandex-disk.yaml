@@ -1,21 +1,31 @@
 #!/usr/bin/env -S podman-compose -f
 
-# ./compose.yaml up -d --force-recreate
-# ./compose.yaml build --no-cache
+# How to start sequence:
+#
+# ./compose-yandex-disk.yaml build --no-cache		# <- build the container
+# ./compose-yandex-disk.yaml run --rm yandex-disk token	# <- create auth info volume
+#
+# # set relative or absolune YANDEX_SHARE path in .env	# <- edit .env
+# chcon -R -t svirt_sandbox_file_t ./yandex-share/	# <- chill down selinux
+# restorecon -R ./yandex-share/
+#
+# ./compose-yandex-disk.yaml down			# <- stop service
+# ./compose-yandex-disk.yaml up -d --force-recreate	# <- start service
 
 version: '2'
 services:
   yandex-disk:
+    build: yandex-disk/
     image: docker.io/kran0/yandex-disk:latest
     restart: always
-    volumes:
-      - ./share:/opt/share
     environment:
-      PASSWORD:     "secret"
-      USERNAME:     "owner@yandex.ru"
-#      DIR:          "/opt/share"
-#      AUTH:         "/tmp/yandex-disk.passwd"
-#      EXCLUDE_DIRS: "exclude/dir1,exclude/dir2,path/to/another/exclude/dir"
-#      READ_ONLY: true
-#      OVERWRITE: true
-#      PROXY:        "socks5,my.another.proxy.local,1081"
+      - HOME=${_CONTAINER_HOME:-/yandex-home}
+    volumes:
+      - yandex-home:${_CONTAINER_HOME:-/yandex-home}
+      - ${YANDEX_SHARE}:${_CONTAINER_SHARE:-/yandex-share}
+    command: [ "--no-daemon", "start",
+               "--dir=${_CONTAINER_SHARE:-/yandex-share}"
+             ]
+
+volumes:
+  yandex-home:
