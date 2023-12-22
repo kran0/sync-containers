@@ -1,16 +1,15 @@
-ARG FEDORA_VERSION=35
+ARG FEDORA_VERSION=39
 FROM fedora:${FEDORA_VERSION} as prepare
 
 COPY rootfs /
 
-ARG FEDORA_VERSION=35
-ARG YANDEX_DISK=yandex-disk-0.1.5.1039
-ENV DEPS='glibc-minimal-langpack bash'
+ARG FEDORA_VERSION=39
+ARG YANDEX_DISK=yandex-disk #yandex-disk-0.1.6.1080
 
-RUN dnf -y install\
- --installroot /target --releasever ${FEDORA_VERSION}\
+RUN dnf -y install --releasever ${FEDORA_VERSION}\
+ --installroot /target\
  --setopt install_weak_deps=false\
- ${DEPS} ${YANDEX_DISK}
+ ${YANDEX_DISK}
 
 # remove unused depencies
 RUN rm -rvf\
@@ -21,5 +20,5 @@ RUN rm -rvf\
 FROM scratch
 COPY --from=prepare /target /
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["start"]
+ENTRYPOINT [ "/usr/bin/yandex-disk" ]
+CMD [ "--help" ]
