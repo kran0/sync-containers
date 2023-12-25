@@ -12,10 +12,12 @@
 # ./compose-yandex-disk.yaml down			# <- stop service
 # ./compose-yandex-disk.yaml up -d --force-recreate	# <- start service
 
-version: '2'
 services:
   yandex-disk:
-    build: yandex-disk/
+    build:
+      context: yandex-disk
+      args:
+        FEDORA_VERSION: 40
     image: docker.io/kran0/yandex-disk:latest
     restart: always
     environment:
