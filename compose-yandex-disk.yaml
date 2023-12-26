@@ -11,6 +11,9 @@
 #
 # ./compose-yandex-disk.yaml down			# <- stop service
 # ./compose-yandex-disk.yaml up -d --force-recreate	# <- start service
+#
+# for l in ./yandex-share/.sync/*.log; do mv ${l} ${l}~bak; ln -s /dev/stdout ${l}; done
+#
 
 services:
   yandex-disk:
