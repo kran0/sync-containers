@@ -1,6 +1,12 @@
 
 # Popular user data sync clients in containers
 
+This project aims to create simple, lightweight containers for various cloud 
+storage systems. Like Dropbox, Google Drive and others.
+
+Doing this I have started with Yandex disk, and it suits me so far. 
+So i have trottled down a bit. Only Yandex disk is implemented so far.
+
 ## How to run containers
 
 - [yandex-disk][link_yadisk_readme].
