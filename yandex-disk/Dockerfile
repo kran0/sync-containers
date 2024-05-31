@@ -8,6 +8,7 @@ ARG YANDEX_DISK=yandex-disk
 
 RUN dnf -y install --releasever ${FEDORA_VERSION}\
  --installroot /target\
+ --use-host-config\
  --setopt install_weak_deps=false\
  ${YANDEX_DISK}
 
