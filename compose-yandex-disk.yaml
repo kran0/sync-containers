@@ -1,20 +1,5 @@
 #!/usr/bin/env -S podman-compose -f
 
-# How to start sequence:
-#
-# ./compose-yandex-disk.yaml build --no-cache		# <- build the container
-# ./compose-yandex-disk.yaml run --rm yandex-disk token	# <- create auth info volume
-#
-# # set relative or absolune YANDEX_SHARE path in .env	# <- edit .env
-# chcon -R -t svirt_sandbox_file_t ./yandex-share/	# <- chill down selinux
-# restorecon -R ./yandex-share/
-#
-# ./compose-yandex-disk.yaml down			# <- stop service
-# ./compose-yandex-disk.yaml up -d --force-recreate	# <- start service
-#
-# for l in ./yandex-share/.sync/*.log; do mv ${l} ${l}~bak; ln -s /dev/stdout ${l}; done
-#
-
 services:
   yandex-disk:
 #    build:

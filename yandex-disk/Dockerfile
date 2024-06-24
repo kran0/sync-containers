@@ -1,13 +1,14 @@
-ARG FEDORA_VERSION=39
+ARG FEDORA_VERSION=rawhide
 FROM fedora:${FEDORA_VERSION} as prepare
 
 COPY yandex.repo /etc/yum.repos.d
 
-ARG FEDORA_VERSION=39
+ARG FEDORA_VERSION=rawhide
 ARG YANDEX_DISK=yandex-disk
 
 RUN dnf -y install --releasever ${FEDORA_VERSION}\
  --installroot /target\
+ --use-host-config\
  --setopt install_weak_deps=false\
  ${YANDEX_DISK}
 
